@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chụp Cưới Vi Vu - Dịch vụ chụp ảnh cưới chuyên nghiệp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #d4af37; /* Gold */
+            --secondary-color: #8b4513; /* SaddleBrown */
+            --light-color: #fff9e6; /* Light Yellow */
+            --dark-color: #333; /* Dark Gray */
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary-color), #f4e4a6);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0; /* Reset margin for flex item */
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-left: 10px;
+            margin-bottom: 0; /* Reset margin for h1 inside logo */
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            margin-top: 0; /* Reset margin for flex item */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Sử dụng ảnh trực tiếp từ URL để tránh lỗi đường dẫn cục bộ */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            background-attachment: fixed; /* Parallax effect */
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3); /* Slightly darker overlay for text readability */
+            border-radius: var(--border-radius);
+        }
+
+        .hero-content h2 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.35rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1; /* Allow main content to grow and push footer down */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: rotate(-2deg); /* Slight tilt for artistic touch */
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        /* Combo Section */
+        #combos {
+            background-color: var(--light-color);
+        }
+
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .combo-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .combo-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .combo-image {
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .combo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .combo-card:hover .combo-image img {
+            transform: scale(1.15);
+        }
+
+        .combo-details {
+            padding: 25px;
+            flex-grow: 1; /* Allow details section to grow */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .combo-details h3 {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 1.8rem;
+        }
+
+        .combo-details p {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allow description to grow */
+        }
+
+        .combo-price {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0 25px;
+            text-align: center;
+            background-color: #fdf8e8;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px dashed var(--primary-color);
+        }
+
+        .combo-features {
+            list-style: none;
+            margin-bottom: 25px;
+            padding-left: 0;
+        }
+
+        .combo-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: #555;
+            padding-bottom: 8px;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .combo-features li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .combo-features li i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            font-size: 1.1rem;
+            line-height: 1.5; /* Align icon with text */
+        }
+
+        .combo-details .btn {
+            align-self: center; /* Center the button */
+            width: fit-content;
+            margin-top: auto; /* Push button to the bottom */
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 280px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 3.5rem;
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--light-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item div h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .contact-item div p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 160px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.15rem;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px; /* Add some space above footer */
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 3.2rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image {
+                transform: rotate(0deg); /* Remove tilt on smaller screens */
+            }
+            .about-image:hover {
+                transform: scale(1.03);
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav ul {
+                margin-top: 10px;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 12px;
+            }
+            .hero {
+                height: 70vh;
+            }
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .section-title {
+                margin-bottom: 40px;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .combo-grid, .gallery-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .combo-card, .gallery-item {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .contact-icon {
+                margin-bottom: 10px;
+            }
+            .footer-column {
+                text-align: center;
+            }
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            .logo-img {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            nav ul li {
+                margin: 0 8px;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            .section-title p {
+                font-size: 0.9rem;
+            }
+            .about-text p {
+                font-size: 0.9rem;
+            }
+            .combo-details h3 {
+                font-size: 1.5rem;
+            }
+            .combo-price {
+                font-size: 1.5rem;
+            }
+            .combo-features li {
+                font-size: 0.85rem;
+            }
+            .gallery-item {
+                height: 220px;
+            }
+            .gallery-overlay i {
+                font-size: 2.5rem;
+            }
+            .contact-item div h3 {
+                font-size: 1.1rem;
+            }
+            .contact-item div p {
+                font-size: 0.9rem;
+            }
+            .form-group label {
+                font-size: 0.95rem;
+            }
+            .form-group input, .form-group textarea {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            .contact-form .btn {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            .footer-column h3 {
+                font-size: 1.2rem;
+            }
+            .footer-column p, .footer-column ul li a {
+                font-size: 0.85rem;
+            }
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-img">CCVV</div>
+                    <h1>Chụp Cưới Vi Vu</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#about">Giới Thiệu</a></li>
+                        <li><a href="#combos">Combo</a></li>
+                        <li><a href="#gallery">Bộ Sưu Tập</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Lưu giữ khoảnh khắc hạnh phúc của bạn</h2>
+                    <p>Chúng tôi chuyên cung cấp các gói chụp ảnh cưới chuyên nghiệp, sáng tạo và tràn đầy cảm xúc</p>
+                    <a href="#combos" class="btn">Xem Combo Ngay</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Về Chúng Tôi</h2>
+                    <p>Chụp Cưới Vi Vu - Nơi ghi lại những khoảnh khắc đẹp nhất trong ngày trọng đại của bạn</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Với hơn 10 năm kinh nghiệm trong lĩnh vực nhiếp ảnh cưới, đội ngũ của chúng tôi tự hào mang đến những bức ảnh cưới tuyệt vời, đầy cảm xúc và sáng tạo. Chúng tôi hiểu rằng ngày cưới là một trong những ngày quan trọng nhất trong cuộc đời bạn, và chúng tôi sẽ giúp bạn lưu giữ những khoảnh khắc đáng nhớ đó một cách trọn vẹn nhất.</p>
+                        <p>Phong cách chụp ảnh của chúng tôi là sự kết hợp giữa nghệ thuật và tự nhiên, đảm bảo mỗi bức ảnh đều kể một câu chuyện tình yêu độc đáo của riêng bạn.</p>
+                        <a href="#contact" class="btn">Liên Hệ Ngay</a>
+                    </div>
+                    <div class="about-image">
+                        <!-- Sử dụng ảnh trực tiếp từ URL để tránh lỗi đường dẫn cục bộ -->
+                        <img src="images/about-us.jpg" alt="Nhiếp ảnh gia đang chụp ảnh cưới">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combo Section -->
+        <section id="combos" style="background-color: var(--light-color);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Combo Chụp Ảnh Cưới</h2>
+                    <p>Các gói dịch vụ chụp ảnh cưới trọn gói với nhiều lựa chọn phù hợp với nhu cầu của bạn</p>
+                </div>
+                <div class="combo-grid">
+                    <!-- Combo 1 -->
+                    <div class="combo-card">
+                        <div class="combo-image">
+                            <img src="images/combo-basic.jpg" alt="Combo Cơ Bản">
+                        </div>
+                        <div class="combo-details">
+                            <h3>Combo Cơ Bản</h3>
+                            <p>Gói chụp ảnh cưới phù hợp cho các cặp đôi muốn tiết kiệm chi phí nhưng vẫn có những bức ảnh đẹp.</p>
+                            <div class="combo-price">50.000.000 VNĐ</div>
+                            <ul class="combo-features">
+                                <li><i class="fas fa-check"></i> Chụp 2 giờ tại studio</li>
+                                <li><i class="fas fa-check"></i> 30 ảnh retouch</li>
+                                <li><i class="fas fa-check"></i> 1 album nhỏ (20x30cm)</li>
+                                <li><i class="fas fa-check"></i> File ảnh độ phân giải cao</li>
+                                <li><i class="fas fa-times" style="color: #dc3545;"></i> Chụp ngoại cảnh</li>
+                            </ul>
+                            <a href="#contact" class="btn">Đặt Ngay</a>
+                        </div>
+                    </div>
+
+                    <!-- Combo 2 -->
+                    <div class="combo-card">
+                        <div class="combo-image">
+                            <img src="images/combo-standard.jpg" alt="Combo Tiêu Chuẩn">
+                        </div>
+                        <div class="combo-details">
+                            <h3>Combo Tiêu Chuẩn</h3>
+                            <p>Gói chụp ảnh phổ biến nhất, kết hợp chụp studio và ngoại cảnh để có những bức ảnh đa dạng.</p>
+                            <div class="combo-price">80.000.000 VNĐ</div>
+                            <ul class="combo-features">
+                                <li><i class="fas fa-check"></i> Chụp 4 giờ (2 studio + 2 ngoại cảnh)</li>
+                                <li><i class="fas fa-check"></i> 50 ảnh retouch</li>
+                                <li><i class="fas fa-check"></i> 1 album trung (25x35cm)</li>
+                                <li><i class="fas fa-check"></i> File ảnh độ phân giải cao</li>
+                                <li><i class="fas fa-check"></i> 2 ảnh phóng treo tường</li>
+                                <li><i class="fas fa-check"></i> 2 combo áo quần vest,váy</li>
+                                <li><i class="fas fa-check"></i> 1 combo vòng vàng,nhẫn |sau chụp ảnh có thể mang về|</li>
+                            </ul>
+                            <a href="#contact" class="btn">Đặt Ngay</a>
+                        </div>
+                    </div>
+
+                    <!-- Combo 3 -->
+                    <div class="combo-card">
+                        <div class="combo-image">
+                            <img src="images/combo-premium.jpg" alt="Combo Cao Cấp">
+                        </div>
+                        <div class="combo-details">
+                            <h3>Combo Cao Cấp</h3>
+                            <p>Gói chụp ảnh cao cấp với đầy đủ dịch vụ, mang đến trải nghiệm tuyệt vời và những bức ảnh ấn tượng.</p>
+                            <div class="combo-price">120.000.000 VNĐ</div>
+                            <ul class="combo-features">
+                                <li><i class="fas fa-check"></i> Chụp trọn ngày (8 giờ)</li>
+                                <li><i class="fas fa-check"></i> 100 ảnh retouch</li>
+                                <li><i class="fas fa-check"></i> 2 album (30x40cm + 20x30cm)</li>
+                                <li><i class="fas fa-check"></i> File ảnh độ phân giải cao</li>
+                                <li><i class="fas fa-check"></i> 3 ảnh phóng treo tường + 1 video highlight</li>
+                                <li><i class="fas fa-check"></i> 2 combo áo quần vest,váy</li>
+                                <li><i class="fas fa-check"></i> 1 combo vòng vàng,nhẫn,dây vàng,kiềng vàng |sau chụp ảnh có thể mang về|</li>
+                            </ul>
+                            <a href="#contact" class="btn">Đặt Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Bộ Sưu Tập</h2>
+                    <p>Những khoảnh khắc đẹp được ghi lại bởi Chụp Cưới Vi Vu</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery-1.jpg" alt="Ảnh cưới 1">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-2.jpg" alt="Ảnh cưới 2">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-3.jpg" alt="Ảnh cưới 3">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-4.jpg" alt="Ảnh cưới 4">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-5.jpg" alt="Ảnh cưới 5">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-6.jpg" alt="Ảnh cưới 6">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus" style="color: white;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background-color: var(--light-color);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Liên Hệ Với Chúng Tôi</h2>
+                    <p>Hãy liên hệ để được tư vấn và đặt lịch chụp ảnh cưới theo mong muốn của bạn</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Địa chỉ</h3>
+                                <p>Thánh Hồn Thôn, Thành Nạch Đinh, Tinh La Đế Quốc</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Điện thoại</h3>
+                                <p>0936363636</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>chupcuoivivu@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Giờ làm việc</h3>
+                                <p>Thứ 2 - Thứ 7: 8:00 - 20:00<br>Chủ nhật: 8:00 - 17:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Họ và tên</label>
+                                <input type="text" id="name" placeholder="Nhập họ và tên của bạn" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Nhập email của bạn" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" placeholder="Nhập số điện thoại của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Lời nhắn</label>
+                                <textarea id="message" placeholder="Nhập lời nhắn của bạn"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Gửi Liên Hệ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Về Chúng Tôi</h3>
+                    <p>Chụp Cưới Vi Vu với hơn 10 năm kinh nghiệm trong lĩnh vực nhiếp ảnh cưới, luôn mang đến những bức ảnh chất lượng cao và đầy cảm xúc.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/share/1BD2jjpcKf/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/Ho756926163813?t=Od1K-UFBGFnSzzAvoEfCtw&s=09" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/baelinhne_?utm_source=qr&igsh=MTBibTBvY2hvb3Z6MA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@hoadang7702?si=hYcwyHba5CaZWJdG" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Dịch Vụ</h3>
+                    <ul>
+                        <li><a href="#">Chụp ảnh cưới</a></li>
+                        <li><a href="#">Chụp ảnh pre-wedding</a></li>
+                        <li><a href="#">Chụp ảnh kỷ yếu</a></li>
+                        <li><a href="#">Quay phim đám cưới</a></li>
+                        <li><a href="#">Trang điểm cô dâu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Liên Kết Nhanh</h3>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#about">Giới Thiệu</a></li>
+                        <li><a href="#combos">Combo</a></li>
+                        <li><a href="#gallery">Bộ Sưu Tập</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Chụp Cưới Vi Vu. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjusted offset for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+                this.reset();
+            });
+        }
+
+        // Optional: Add a simple gallery lightbox functionality
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                const altText = this.querySelector('img').alt;
+                
+                // Create lightbox elements
+                const lightbox = document.createElement('div');
+                lightbox.classList.add('lightbox');
+                lightbox.innerHTML = `
+                    <div class="lightbox-content">
+                        <span class="close-btn">&times;</span>
+                        <img src="${imgSrc}" alt="${altText}">
+                    </div>
+                `;
+                document.body.appendChild(lightbox);
+
+                // Add basic styling for lightbox (can be moved to CSS for better practice)
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                setTimeout(() => lightbox.style.opacity = '1', 10); // Fade in
+
+                lightbox.querySelector('.lightbox-content').style.cssText = `
+                    position: relative;
+                    max-width: 90%;
+                    max-height: 90%;
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                    transform: scale(0.9);
+                    transition: transform 0.3s ease;
+                `;
+                setTimeout(() => lightbox.querySelector('.lightbox-content').style.transform = 'scale(1)', 10); // Scale in
+
+                lightbox.querySelector('img').style.cssText = `
+                    max-width: 100%;
+                    max-height: 80vh;
+                    display: block;
+                    margin: 0 auto;
+                `;
+                lightbox.querySelector('.close-btn').style.cssText = `
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    color: #fff;
+                    font-size: 40px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    z-index: 1001;
+                    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+                `;
+
+                // Close lightbox
+                const closeLightbox = () => {
+                    lightbox.style.opacity = '0';
+                    lightbox.querySelector('.lightbox-content').style.transform = 'scale(0.9)';
+                    setTimeout(() => document.body.removeChild(lightbox), 300); // Remove after fade out
+                };
+
+                lightbox.querySelector('.close-btn').addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
